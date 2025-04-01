@@ -1,10 +1,23 @@
-import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'; {/*React router library*/ }
+import UserLayout from './components/Layout/UserLayout';
+
 
 const App = () => {
   return (
-        <h1 className="text-3xl font-bold underline">
-            Hello world!
-        </h1>
+    <BrowserRouter> {/*enable client side routing, each route is handle in the browser rather than in the server*/}
+
+      <Routes>
+        <Route path="/" element={<UserLayout />}>
+       
+    
+          
+        </Route>
+        
+          
+      </Routes>
+    
+    </BrowserRouter>
+        
       );
 };
 

@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: { "d-dorada": "#FFD700",
+       },
+    },
   },
+
   plugins: [],
 }
