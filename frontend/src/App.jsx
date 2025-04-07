@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'; {/*React router library*/ }
 import UserLayout from './components/Layout/UserLayout';
-
+import AdminLayout from './components/Admin/AdminLayout';
 
 const App = () => {
   return (
@@ -12,7 +12,11 @@ const App = () => {
     
           
         </Route>
-        
+
+        {/* Admin Layout*/}
+        <Route path="/admin" element={<AdminLayout />}>
+            
+        </Route>
           
       </Routes>
     
