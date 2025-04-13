@@ -1,6 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'; {/*React router library*/ }
 import UserLayout from './components/Layout/UserLayout';
 import AdminLayout from './components/Admin/AdminLayout';
+import Home from '../pages/Home';
+import Login from '../pages/Login';
+import Register from '../pages/Register';
 
 const App = () => {
   return (
@@ -8,7 +11,10 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<UserLayout />}>
-       
+        {/* Nested Routes */}
+        <Route index element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
     
           
         </Route>
