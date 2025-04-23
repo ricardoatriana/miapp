@@ -4,7 +4,7 @@ const dotenv = require("dotenv") //to store the port value as a variable
 const connectDB = require("./config/db")
 const productRoutes = require ("./routes/productRoutes")
 const userRoutes = require ("./routes/userRoutes")
-
+const orderRoutes = require ("./routes/orderRoutes")
 const cookieParser = require("cookie-parser");
 
 
@@ -36,6 +36,7 @@ app.get("/", (req, res) => {
 //API Routes, it started with User Registration
 app.use("/api/users", userRoutes)
 app.use("/api/products", productRoutes)
+app.use("/api/orders", orderRoutes)
 
 app.listen(PORT, () =>{
     console.log(`Servidor corriendo en http://localhost:${PORT}`)
