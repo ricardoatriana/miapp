@@ -6,6 +6,7 @@ const productRoutes = require ("./routes/productRoutes")
 const userRoutes = require ("./routes/userRoutes")
 const orderRoutes = require ("./routes/orderRoutes")
 const cookieParser = require("cookie-parser");
+const path = require('path'); // <-- Import path module
 
 
 dotenv.config()
@@ -32,6 +33,8 @@ connectDB()
 app.get("/", (req, res) => {
     res.send("Welcome to miapp")
 });
+
+app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
 
 //API Routes, it started with User Registration
 app.use("/api/users", userRoutes)

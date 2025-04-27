@@ -6,8 +6,8 @@ const products = [
         price: 150,
         images: [
             {
-                url: "https://picsum.photos/seed/denim1/500/500",
-                altText: "Apt 1"
+                url: "http://localhost:9000/assets/apt1.jpg",
+                altText: "Foto de a href=httpsunsplash.comes@anthonybressyutm_content=creditCopyText&utm_medium=referral&utm_source=unsplashAnthony Bressya en a href=httpsunsplash.comesfotosbicicleta-blanca-al-lado-de-la-valla-PfYCAwGLMWYutm_content="
             }
         ],
         tags: ["D1"]
@@ -18,8 +18,8 @@ const products = [
         price: 160,
         images: [
             {
-                url: "https://picsum.photos/seed/denim1/500/500",
-                altText: "Apt 2"
+                url: "http://localhost:9000/assets/apt2.jpg",
+                altText: "Foto de a href=httpsunsplash.comes@fonsheijnsbroek_amsterdam_photosutm_content=creditCopyText&utm_medium=referral&utm_source=unsplashFons Heijnsbroeka en a href=httpsunsplash.comesfotoscoches-aparcados-al-costado-de-una-call"
             }
         ],
         tags: ["D2"]
@@ -30,8 +30,8 @@ const products = [
         price: 170,
         images: [
             {
-                url: "https://picsum.photos/seed/denim1/500/500",
-                altText: "Apt 3"
+                url: "http://localhost:9000/assets/apt3.jpg",
+                altText: "Foto de a href=httpsunsplash.comes@fonsheijnsbroek_amsterdam_photosutm_content=creditCopyText&utm_medium=referral&utm_source=unsplashFons Heijnsbroeka en a href=httpsunsplash.comesfotosuna-calle-con-coches-y-gente-vjCLK4tgYG"
             }
         ],
         tags: ["D3"]
@@ -42,8 +42,8 @@ const products = [
         price: 180,
         images: [
             {
-                url: "https://picsum.photos/seed/denim1/500/500",
-                altText: "Apt 4"
+                url: "http://localhost:9000/assets/apt4.jpg",
+                altText: "Foto de a href=httpsunsplash.comes@haileytongutm_content=creditCopyText&utm_medium=referral&utm_source=unsplashHailey Tonga en a href=httpsunsplash.comesfotosun-rio-que-atraviesa-una-ciudad-junto-a-edificios-altos-eZ3hpwmJGL"
             }
         ],
         tags: ["D4"]
@@ -54,8 +54,8 @@ const products = [
         price: 190,
         images: [
             {
-                url: "https://picsum.photos/seed/denim1/500/500",
-                altText: "Apt 5"
+                url: "http://localhost:9000/assets/apt5.jpg",
+                altText: "Foto de a href=httpsunsplash.comes@jonasrgsutm_content=creditCopyText&utm_medium=referral&utm_source=unsplashJonas da Silvaa en a href=httpsunsplash.comesfotosun-buzon-rojo-frente-a-una-casa-de-ladrillo-w70ys95aoe4utm_conten"
             }
         ],
         tags: ["D5"]
@@ -66,8 +66,8 @@ const products = [
         price: 200,
         images: [
             {
-                url: "https://picsum.photos/seed/denim1/500/500",
-                altText: "Apt 6"
+                url: "http://localhost:9000/assets/apt6.jpg",
+                altText: "Foto de a href=httpsunsplash.comes@recordarsewutm_content=creditCopyText&utm_medium=referral&utm_source=unsplashWang xiaoqia en a href=httpsunsplash.comesfotosun-edificio-amarillo-con-un-arbol-frente-a-el-3WIIcMDYxc4utm_cont"
             }
         ],
         tags: ["D6"]
@@ -78,8 +78,8 @@ const products = [
         price: 210,
         images: [
             {
-                url: "https://picsum.photos/seed/denim1/500/500",
-                altText: "Apt 7"
+                url: "http://localhost:9000/assets/apt7.jpg",
+                altText: "Foto de a href=httpsunsplash.comes@thebarlemyutm_content=creditCopyText&utm_medium=referral&utm_source=unsplashBarthelemy de Mazenoda en a href=httpsunsplash.comesfotosedificio-de-hormigon-blanco-con-plantas-verdes-sW1Yzq8bw"
             }
         ],
         tags: ["D8"]
@@ -90,8 +90,8 @@ const products = [
         price: 220,
         images: [
             {
-                url: "https://picsum.photos/seed/denim1/500/500",
-                altText: "Apt 8"
+                url: "http://localhost:9000/assets/apt8.jpg",
+                altText: "Foto de a href=httpsunsplash.comes@thorai9akirautm_content=creditCopyText&utm_medium=referral&utm_source=unsplashTheo Lonica en a href=httpsunsplash.comesfotosuna-casa-con-una-cerca-y-arboles-frente-a-ella-wYHNasOa-3Qutm_con"
             }
         ],
         tags: ["D8"]
@@ -102,8 +102,8 @@ const products = [
         price: 230,
         images: [
             {
-                url: "https://picsum.photos/seed/denim1/500/500",
-                altText: "Apt 9"
+                url: "http://localhost:9000/assets/apt9.jpg",
+                altText: "Foto de a href=httpsunsplash.comes@walkerdesigncoutm_content=creditCopyText&utm_medium=referral&utm_source=unsplashDavid Walker  Walker Design Co.a en a href=httpsunsplash.comesfotosuna-calle-en-un-pequeno-pueblo-con-edifici"
             }
         ],
         tags: ["D9"]
@@ -114,8 +114,8 @@ const products = [
         price: 240,
         images: [
             {
-                url: "https://picsum.photos/seed/denim1/500/500",
-                altText: "Apt 11"
+                url: "http://localhost:9000/assets/apt10.jpg",
+                altText: "Foto de a href=httpsunsplash.comes@zacgudakovutm_content=creditCopyText&utm_medium=referral&utm_source=unsplashZac Gudakova en a href=httpsunsplash.comesfotoscasa-de-madera-blanca-y-marron-cerca-de-arboles-verdes-bajo-el-cie"
             }
         ],
         tags: ["D10"]
