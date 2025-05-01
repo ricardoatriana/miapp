@@ -101,8 +101,8 @@ router.get("/profile", protect, async (req, res) => {
         return res.status(401).json({ message: "User not found" });
     }
 
-    const { name, email } = req.user;
-    res.json({ name, email });
+    const { _id, name, email } = req.user; // the _id, so it can also retrieve the order
+    res.json({ _id, name, email });
 });
 
 // 5. API Get userId, that is used in CartDrawer.jsx

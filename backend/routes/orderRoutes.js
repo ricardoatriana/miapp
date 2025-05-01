@@ -5,21 +5,21 @@ const router = express.Router();
 // 1. API to POST items in the cart to Order Collection
 router.post("/", async (req, res) => {
     try {
-        const { user, cart } = req.body; 
+        const { user, products } = req.body; 
 
         if (!user) {
             return res.status(400).json({ message: "User is required" });
         }
-        if (!cart || cart.length === 0) {
+        if (!products || products.length === 0) {
             return res.status(400).json({ message: "Cart is empty" });
         }
 
         // Calculate totalPrice
-        const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
+       const totalPrice = products.reduce((sum, item) => sum + item.price, 0);
 
         const newOrder = new Order({
             user, 
-            items: cart.map(item => ({
+            products: products.map(item => ({
                 productId: item._id,
                 quantity: 1, 
                 price: item.price
@@ -47,5 +47,24 @@ router.get("/", async (req, res) => {
     }
 });
 
+// 3 GET API fetching all orders for a user
+const mongoose = require('mongoose');
+
+router.get('/:userId', async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      return res.status(400).json({ message: "Invalid user ID" });
+    }
+
+    const orders = await Order.find({ user: userId }).populate("products.productId");
+
+    res.json(orders);
+  } catch (error) {
+    console.error('Error fetching user orders:', error.message, error.stack);
+    res.status(500).json({ message: 'Server error fetching orders' });
+  }
+});
 
 module.exports = router;

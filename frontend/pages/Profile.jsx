@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import axios from "axios";
+import MyOrders from "/pages/MyOrders";
 
 
 axios.defaults.withCredentials = true; // Ensure cookies are sent with requests
@@ -16,6 +17,7 @@ const Profile = () => {
       try {
         const response = await axios.get("http://localhost:9000/api/users/profile");
         setUser(response.data);
+         
       } catch (err) {
         setError("Failed to fetch profile data");
         console.error(err);
@@ -58,6 +60,11 @@ const Profile = () => {
             >
               Logout
             </button>
+          </div>
+          {/* Right Section: Orders table */}
+          <div className="w-full md:w-2/3 lg:w-3/4">
+          <MyOrders userId={user._id} />
+
           </div>
         </div>
       </div>

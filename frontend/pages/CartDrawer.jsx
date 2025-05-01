@@ -36,7 +36,11 @@ const CartDrawer = ({ cart, removeFromCart }) => {
       await axios.post("http://localhost:9000/api/orders", {
         // API POST to Order Collections. Routes-orderRoutes
         user: userId,
-        cart, // List of items
+        products: cart.map(item => ({
+          productId: item._id,
+          name: item.name,
+          price: item.price,
+        })),
         totalPrice,
       });
 
@@ -50,7 +54,7 @@ const CartDrawer = ({ cart, removeFromCart }) => {
   };
 
   const total = cart.reduce((sum, item) => sum + item.price, 0); // Calculate total for display
-  
+
   // To Fixed is to format the number
   return (
     <div className="cart-drawer p-4 bg-white rounded shadow-md max-w-md">
