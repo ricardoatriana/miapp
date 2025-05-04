@@ -1,5 +1,6 @@
 const express = require("express");
 const Order = require("../models/Order");
+
 const router = express.Router();
 
 // 1. API to POST items in the cart to Order Collection
@@ -66,5 +67,29 @@ router.get('/:userId', async (req, res) => {
     res.status(500).json({ message: 'Server error fetching orders' });
   }
 });
+
+// Delete an Order by ID for a user
+router.delete("/:id", async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        // Find the order by ID and ensure the user owns it
+        const order = await Order.findById(id); // Find the order by ID
+
+        if (!order) {
+            return res.status(404).json({ message: "Order not found or not authorized" });
+        }
+
+        // Delete the order
+        await order.deleteOne(); // Delete the order
+
+
+        res.status(200).json({ message: "Order deleted successfully" });
+    } catch (err) {
+        console.error("Error deleting order:", err);
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
 
 module.exports = router;

@@ -124,4 +124,9 @@ router.get("/userid", protect, async (req, res) => {
     }
 });
 
+router.get("/auth", protect, async (req, res) => { // to verify if a user is currently logged in
+    const user = await User.findById(req.user.id).select("-password");
+    res.status(200).json(user);
+});
+
 module.exports = router;

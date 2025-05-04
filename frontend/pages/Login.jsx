@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";  // Axios to integrate backend with frontend
 import Cookies from "js-cookie"; // For handling cookies
@@ -11,7 +11,8 @@ const Login = () => {
     const [error, setError] = useState("");  // To store error messages
     const navigate = useNavigate();  // Use the navigate function from useNavigate
 
-    
+
+
     const handleSubmit = async (e) => { 
         e.preventDefault();
 
@@ -25,8 +26,11 @@ const Login = () => {
             // If login is successful
             if (response.status === 200) {
                 Cookies.set("jwt", response.data.token, { expires: 7, path:"/" }); // Store token in cookies
-                navigate("/profile"); 
-                
+                if (response.data.user.role === "admin") {
+                    navigate("/admin");
+                } else {
+                    navigate("/profile");
+                }
             }
         } catch (err) {
             if (err.response) {
