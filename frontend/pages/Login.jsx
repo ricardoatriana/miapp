@@ -1,46 +1,43 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";  // Axios to integrate backend with frontend
 import Cookies from "js-cookie"; // For handling cookies
+import { AuthContext } from "../src/context/AuthContext";
+import axios from "axios";
 
-axios.defaults.withCredentials = true; // Ensure cookies are sent with requests
+axios.defaults.withCredentials = true;
 
 const Login = () => {
+    const { login, user } = useContext(AuthContext);
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [password, setPassword] = useState("");   
     const [error, setError] = useState("");  // To store error messages
     const navigate = useNavigate();  // Use the navigate function from useNavigate
+       
+    useEffect(() => {
+        if (!user) return; // Only navigate after user is fetched
+        if (user.role === "admin") {
+          navigate("/admin");
+        } else {
+          navigate("/profile");
+        }
+      }, [user, navigate]);
 
-
-
-    const handleSubmit = async (e) => { 
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
         try {
-            // Sending POST request to the backend API
-            const response = await axios.post("http://localhost:9000/api/users/login", {
-                email,
-                password,
-            });
+            const response = await login(email, password); // Make sure `login` returns the response
+            Cookies.set("jwt", response.data.token, { expires: 7, path: "/" });
 
-            // If login is successful
-            if (response.status === 200) {
-                Cookies.set("jwt", response.data.token, { expires: 7, path:"/" }); // Store token in cookies
-                if (response.data.user.role === "admin") {
-                    navigate("/admin");
-                } else {
-                    navigate("/profile");
-                }
+            if (response.data.user.role === "admin") {
+                navigate("/admin");
+            } else {
+                navigate("/profile");
             }
         } catch (err) {
-            if (err.response) {
-                setError(err.response.data.message);  // Get error message from server
-            } else {
-                setError("Server Error");
-            }
+            setError(err.response?.data?.message || "Login failed");
         }
     };
-
+    
     return (
         
             <form 

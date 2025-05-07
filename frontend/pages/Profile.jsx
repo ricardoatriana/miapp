@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import axios from "axios";
 import MyOrders from "/pages/MyOrders";
+import { useContext } from "react";
+import { AuthContext } from "../src/context/AuthContext";
 
 
 axios.defaults.withCredentials = true; // Ensure cookies are sent with requests
@@ -11,6 +13,8 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate(); // Initialize useNavigate
+  const { logout } = useContext(AuthContext);
+  
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -21,22 +25,22 @@ const Profile = () => {
       } catch (err) {
         setError("Failed to fetch profile data");
         console.error(err);
+        navigate("/login"); 
       } finally {
         setLoading(false);
       }
     };
 
     fetchUserProfile();
-  }, []);
+  }, [navigate]);
 
   // Logout functionality
   const handleLogout = async () => {
     try {
-      await axios.post("http://localhost:9000/api/users/logout", {}, { withCredentials: true });
-      localStorage.removeItem("userInfo");
-      navigate("/login"); // Redirect to login
+      await logout();  // Call the context's logout
+      navigate("/");
     } catch (error) {
-      console.error("Logout failed:", error);
+      console.error("Logout failed", error);
     }
   };
 
